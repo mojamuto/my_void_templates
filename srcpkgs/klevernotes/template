@@ -1,0 +1,13 @@
+# Template file for 'klevernotes'
+pkgname=klevernotes
+version=1.2.2
+revision=1
+build_style=cmake
+hostmakedepends="cmake ninja extra-cmake-modules qt6-tools gettext qt6-base-private-devel qt6-svg-devel qt6-webengine-devel kirigami-addons-devel kf6-kio-devel"
+makedepends="qt6-base-devel qt6-declarative-devel kirigami2-devel kio-devel kconfig-devel"
+short_desc="Note-taking app for KDE using Kirigami"
+maintainer="tu_nombre <tu_email@ejemplo.com>"
+license="GPL-3.0-or-later"
+homepage="https://invent.kde.org/utilities/klevernotes"
+distfiles="https://invent.kde.org/office/klevernotes/-/archive/v${version}/klevernotes-v${version}.zip"
+checksum=bf90361b301d5177e181947e106c45a433b3efb3519dcf75d9e2c5543f44dc8b
