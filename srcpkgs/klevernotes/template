@@ -2,12 +2,29 @@
 pkgname=klevernotes
 version=1.2.2
 revision=1
+wrksrc="${pkgname}-v${version}"
 build_style=cmake
-hostmakedepends="cmake ninja extra-cmake-modules qt6-tools gettext qt6-base-private-devel qt6-svg-devel qt6-webengine-devel kirigami-addons-devel kf6-kio-devel"
-makedepends="qt6-base-devel qt6-declarative-devel kirigami2-devel kio-devel kconfig-devel"
-short_desc="Note-taking app for KDE using Kirigami"
-maintainer="tu_nombre <tu_email@ejemplo.com>"
-license="GPL-3.0-or-later"
-homepage="https://invent.kde.org/utilities/klevernotes"
-distfiles="https://invent.kde.org/office/klevernotes/-/archive/v${version}/klevernotes-v${version}.zip"
-checksum=bf90361b301d5177e181947e106c45a433b3efb3519dcf75d9e2c5543f44dc8b
+configure_args="-G Ninja -DCMAKE_BUILD_TYPE=None -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_TESTING=OFF -Wno-dev"
+make_cmd=ninja
+hostmakedepends="cmake extra-cmake-modules ninja pkg-config python"
+makedepends="hicolor-icon-theme \
+             kf6-kcolorscheme-devel \
+             kf6-kconfig-devel \
+             kf6-kcoreaddons-devel \
+             kf6-ki18n-devel \
+             kf6-kiconthemes-devel \
+             kf6-kio-devel \
+             kf6-kirigami-devel \
+             kirigami-addons-devel \
+             kf6-kitemmodels-devel \
+             qt6-base-devel \
+             qt6-declarative-devel \
+             qt6-webchannel-devel \
+             qt6-webengine-devel"
+
+short_desc="A convergent markdown note taking application"
+maintainer="Tu Nombre <tuemail@example.com>"
+license="GPL-2.0-or-later, LGPL-2.1-or-later"
+homepage="https://invent.kde.org/office/klevernotes"
+distfiles="${homepage}/-/archive/v${version}/${pkgname}-v${version}.tar.gz"
+checksum="c570c1a4fb6e51a80ab3c540b372da9ba07929c02899e9ba488eca1ab1484a7d"

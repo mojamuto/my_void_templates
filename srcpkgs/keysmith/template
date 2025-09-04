@@ -1,0 +1,29 @@
+# Template para 'keysmith'
+pkgname="keysmith"
+version="25.08.0"
+revision=1
+build_style="cmake"
+hostmakedepends="cmake extra-cmake-modules python pkg-config"
+makedepends="kf6-kconfig-devel \
+             kf6-kcoreaddons-devel \
+             kf6-kdbusaddons-devel \
+             kf6-ki18n-devel \
+             kf6-kirigami-devel \
+             kirigami-addons-devel \
+             kf6-kwindowsystem-devel \
+             kf6-prison-devel \
+             kf6-qqc2-desktop-style-devel \
+             qt6-base-devel \
+             qt6-declarative-devel \
+             qt6-multimedia-devel \
+             libsodium-devel \
+             openssl-devel"
+
+
+
+short_desc="OTP client para Plasma Mobile y Desktop (HOTP/TOTP)"
+maintainer="TU_NOMBRE <TU_EMAIL>"
+license="GPL-3.0-or-later"
+homepage="https://invent.kde.org/utilities/keysmith"
+distfiles="${homepage}/-/archive/v${version}/${pkgname}-v${version}.tar.gz"
+checksum="86d0959fdc3738adbadf7ce19ded7bd5c6168557377d951abc71cef8c1b72de7"
