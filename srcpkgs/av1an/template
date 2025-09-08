@@ -1,0 +1,52 @@
+# Template for Void Linux package: av1an
+
+pkgname=av1an
+version=0.4.4
+revision=1
+build_style=cargo
+
+hostmakedepends="
+	cargo
+	rust
+	clang
+	nasm
+	pkg-config
+	git
+"
+
+makedepends="
+	ffmpeg6
+	ffmpeg6-devel
+	libaom
+	vapoursynth
+	libvpx
+	rav1e
+	svt-av1
+	libffms2
+	mkvtoolnix
+	vmaf
+	x264
+	x265
+	liblsmash-devel
+	vapoursynth-ffms2-source
+"
+
+short_desc="Cross-platform command-line encoding framework with per-scene quality encoding"
+maintainer="TuNombre <tuemail@example.com>"
+license="GPL-3.0-only"
+homepage="https://github.com/master-of-zen/Av1an"
+distfiles="https://github.com/master-of-zen/Av1an/archive/refs/tags/${version}.tar.gz"
+checksum=6cf3a55838845ed91e642dfd765ca5a969eb4ce4c0c10afa4f9e9dc8cfbce786
+
+do_build() {
+	# Usar libgit2 y FFmpeg vendorizados
+	export LIBGIT2_NO_VENDOR=0
+	export FFMPEG_STATIC=1
+
+	cargo build --release --locked
+}
+
+do_install() {
+	install -Dm755 target/release/av1an "${DESTDIR}/usr/bin/av1an"
+	install -Dm644 LICENSE.md "${DESTDIR}/usr/share/licenses/${pkgname}/LICENSE.md"
+}

@@ -1,0 +1,25 @@
+# Template para VapourSynth L-SMASHSource
+
+pkgname=vapoursynth-plugin-lsmashsource
+version=r929
+revision=1
+build_style=gnu-makefile
+make_use_env=yes
+hostmakedepends="pkg-config"
+makedepends="vapoursynth-devel liblsmash-devel"
+depends="vapoursynth"
+short_desc="L-SMASHSource plugin for VapourSynth"
+maintainer="TuNombre <tuemail@example.com>"
+license="ISC"
+homepage="https://github.com/VFR-maniac/L-SMASH-Works"
+distfiles="https://github.com/VFR-maniac/L-SMASH-Works/archive/${version}.tar.gz"
+checksum=9f69ad9d6fd3b09c83ec69bdc4101018ae0ae9b2d2b7b688a62a4a2020aaaf33
+
+do_build() {
+	cd VapourSynth
+	make
+}
+
+do_install() {
+	install -Dm755 VapourSynth/LSMASHSource.so "${DESTDIR}/usr/lib/vapoursynth/LSMASHSource.so"
+}
